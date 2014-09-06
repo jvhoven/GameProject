@@ -12,4 +12,7 @@ package Gamestate;
  */
 public class Manager {
     
+    public Manager() {
+        
+    }
 }
