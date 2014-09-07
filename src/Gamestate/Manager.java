@@ -34,7 +34,6 @@ public class Manager {
     }
     
     public void keyPressed(int k){
-        System.out.println(k);
         gameStates.get(currentState).keyPressed(k);
     }
     
