@@ -1,12 +1,15 @@
-package rpg;
+package Main;
 
+import Gamestate.Manager;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.*;
 import javax.swing.JPanel;
 
-public class Gamepanel extends JPanel implements Runnable {
+public class Gamepanel extends JPanel implements Runnable, KeyListener {
     
     public static final int WIDTH = 400;
     public static final int HEIGHT = 400;
@@ -17,8 +20,15 @@ public class Gamepanel extends JPanel implements Runnable {
     private BufferedImage image;
     private Graphics2D g;
     
-    private int FPS = 30;
+    private int FPS = 60;
     private int targetTime = 1000 / FPS;
+    
+    /*
+    * Gamestate manager
+    *
+    * @see Gamestate_Manager.java
+    */
+    private Manager gsm;
     
     public Gamepanel(){
         super();
@@ -38,22 +48,24 @@ public class Gamepanel extends JPanel implements Runnable {
     public void run() {
         init();
         
-        long startTime;
-        long urdTime;
-        long waitTime;
+        long start;
+        long elapsed;
+        long wait;
         
         while(running){
-            startTime = System.nanoTime();
+            start = System.nanoTime();
             
             update();
             render();
             draw();
             
-            urdTime = (System.nanoTime() - startTime) / 1000000;
-            waitTime = targetTime - urdTime;
+            elapsed = System.nanoTime() - start;
+            wait = targetTime - elapsed / 1000000;
+            
+            if(wait < 0) wait = 5;
             
             try{
-                Thread.sleep(waitTime);
+                Thread.sleep(wait);
             } catch(Exception e){
                 e.printStackTrace();
             }
@@ -64,12 +76,34 @@ public class Gamepanel extends JPanel implements Runnable {
         running = true;
         image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
         g = (Graphics2D) image.getGraphics();
+        
+        gsm = new Manager();
     }
     
     /////////////////////////////////////////////////////////////////////////
     
-    private void update(){}
-    private void render(){}
-    private void draw(){}
+    private void update(){
+        gsm.update();
+    }
     
+    private void render(){
+        Graphics g2 = getGraphics();
+        g2.drawImage(image, 0, 0, null);
+        g2.dispose();
+    }
+    
+    private void draw(){
+        gsm.draw(g);
+    }
+    
+    public void keyTyped(KeyEvent key){}
+    
+    public void keyPressed(KeyEvent key){
+        System.out.println(key.getKeyCode());
+        gsm.keyPressed(key.getKeyCode());
+    }
+    
+    public void keyReleased(KeyEvent key){
+        gsm.keyReleased(key.getKeyCode());
+    }
 }

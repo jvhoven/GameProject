@@ -1,4 +1,4 @@
-package rpg;
+package Main;
 
 import javax.swing.JFrame;
 
