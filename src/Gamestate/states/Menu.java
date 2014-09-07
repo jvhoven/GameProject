@@ -29,8 +29,7 @@ public class Menu extends Gamestate{
         this.gsm = gsm;
         
         try{
-           // bg = new Background("/Background/menubg.gif", 1);
-            //bg.setVector(-0.1, 0);
+            bg = new Background("menubg.gif", 1);
             
             titleColor = new Color(128, 0, 0);
             titleFont = new Font("Verdana", Font.PLAIN, 28);
@@ -47,12 +46,12 @@ public class Menu extends Gamestate{
     }
 
     public void update() {
-        //bg.update();
+        bg.update();
     }
 
     public void draw(Graphics2D g) {
         // Draw background
-        //bg.draw(g);
+        bg.draw(g);
         
         // Draw title
         g.setColor(titleColor);
