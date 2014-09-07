@@ -11,6 +11,8 @@ public class Game {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setContentPane(new Gamepanel());
         window.pack();
+        window.setSize(Gamepanel.WIDTH, Gamepanel.HEIGHT);
         window.setVisible(true); 
+        window.setResizable(false);
     }
 }

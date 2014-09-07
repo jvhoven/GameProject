@@ -19,10 +19,16 @@ public class Menu extends Gamestate{
         "Quit"
     };
     
+    private String fontFamily = "Eras Light ITC";
+    
     private Color titleColor;
     private Font titleFont;
     
+    private Color fontColor;
+    private Color fontColorActive;
     private Font font;
+    
+    private int correction = 8;
     
     public Menu(Manager gsm) {
         
@@ -32,10 +38,12 @@ public class Menu extends Gamestate{
             bg = new Background("menubg.gif", 1);
             bg.setVector(-0.1, 0);
             
-            titleColor = new Color(128, 0, 0);
-            titleFont = new Font("Verdana", Font.PLAIN, 28);
+            titleColor = new Color(255, 255, 255);
+            titleFont = new Font(fontFamily, Font.PLAIN, 36);
             
-            font = new Font("Arial", Font.PLAIN, 12);
+            fontColor = new Color(150, 150, 150);
+            fontColorActive = new Color(255, 255, 255);
+            font = new Font(fontFamily, Font.PLAIN, 28);
             
         } catch(Exception e){
             e.printStackTrace();
@@ -57,17 +65,25 @@ public class Menu extends Gamestate{
         // Draw title
         g.setColor(titleColor);
         g.setFont(titleFont);
-        g.drawString(TITLE, 80, 70);
+        
+        int titlegLength = (int) g.getFontMetrics().getStringBounds(TITLE, g).getWidth();
+        int titleStart = Main.Gamepanel.WIDTH/4 - titlegLength/2 - correction;
+        
+        g.drawString(TITLE, titleStart, 50);
         
         // Draw menu options
         g.setFont(font);
         for(int i = 0; i < options.length; i++){
             if(i == currentChoice){
-                g.setColor(Color.BLACK);
+                g.setColor(fontColorActive);
             } else {
-                g.setColor(Color.RED);
+                g.setColor(fontColor);
             }
-            g.drawString(options[i], 145, 140 + i * 15);
+            
+            int stringLen = (int) g.getFontMetrics().getStringBounds(options[i], g).getWidth();  
+            int start = Main.Gamepanel.WIDTH/4 - stringLen/2 - correction;  
+            
+            g.drawString(options[i], start, 125 + i * 30);
         }
     }
 
@@ -100,7 +116,7 @@ public class Menu extends Gamestate{
         }
         if(k == KeyEvent.VK_DOWN){
             currentChoice++;
-            if(currentChoice == -1){
+            if(currentChoice == options.length){
                 currentChoice = 0;
             }
         }
