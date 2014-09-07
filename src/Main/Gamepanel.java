@@ -8,8 +8,9 @@ import javax.swing.JPanel;
 
 public class Gamepanel extends JPanel implements Runnable, KeyListener {
     
-    public static final int WIDTH = 400;
-    public static final int HEIGHT = 400;
+    public static final int WIDTH = 320;
+    public static final int HEIGHT = 240;
+    public static final int SCALE = 2;
     
     private Thread thread;
     private boolean running;
@@ -86,7 +87,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener {
     
     private void render(){
         Graphics g2 = getGraphics();
-        g2.drawImage(image, 0, 0, null);
+        g2.drawImage(image, 0, 0, WIDTH * SCALE, HEIGHT * SCALE, null);
         g2.dispose();
     }
     

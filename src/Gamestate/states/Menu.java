@@ -30,6 +30,7 @@ public class Menu extends Gamestate{
         
         try{
             bg = new Background("menubg.gif", 1);
+            bg.setVector(-0.1, 0);
             
             titleColor = new Color(128, 0, 0);
             titleFont = new Font("Verdana", Font.PLAIN, 28);
