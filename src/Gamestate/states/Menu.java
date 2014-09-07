@@ -11,7 +11,8 @@ public class Menu extends Gamestate{
     private Background bg;
     
     private int currentChoice = 0;
-    
+    private static final String TITLE = "Wesley is gay";
+        
     private String[] options = {
         "Start",
         "Help",
@@ -56,7 +57,7 @@ public class Menu extends Gamestate{
         // Draw title
         g.setColor(titleColor);
         g.setFont(titleFont);
-        g.drawString("Wesley is Gay", 80, 70);
+        g.drawString(TITLE, 80, 70);
         
         // Draw menu options
         g.setFont(font);

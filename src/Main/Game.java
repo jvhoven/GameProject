@@ -1,6 +1,7 @@
 package Main;
 
 import javax.swing.JFrame;
+import Main.Gamepanel;
 
 public class Game {
     

@@ -1,9 +1,7 @@
 package Main;
 
 import Gamestate.Manager;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
 import javax.swing.JPanel;
@@ -96,6 +94,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener {
         gsm.draw(g);
     }
     
+  
     public void keyTyped(KeyEvent e) {
     }
 
