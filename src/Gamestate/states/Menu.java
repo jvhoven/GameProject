@@ -50,7 +50,6 @@ public class Menu extends Gamestate{
     }
 
     public void draw(Graphics2D g) {
-        
         // Draw background
         //bg.draw(g);
         
@@ -88,9 +87,7 @@ public class Menu extends Gamestate{
     }
     
     public void keyPressed(int k) {
-        
-        System.out.println(k);
-        
+                
         if(k == KeyEvent.VK_ENTER){
             select();
         }

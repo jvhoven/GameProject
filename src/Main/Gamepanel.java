@@ -4,8 +4,7 @@ import Gamestate.Manager;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.awt.image.*;
 import javax.swing.JPanel;
 
@@ -34,6 +33,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener {
         super();
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setFocusable(true);
+        addKeyListener(this);
         requestFocus();
     }
     
@@ -96,14 +96,14 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener {
         gsm.draw(g);
     }
     
-    public void keyTyped(KeyEvent key){}
-    
-    public void keyPressed(KeyEvent key){
-        System.out.println(key.getKeyCode());
-        gsm.keyPressed(key.getKeyCode());
+    public void keyTyped(KeyEvent e) {
     }
-    
-    public void keyReleased(KeyEvent key){
-        gsm.keyReleased(key.getKeyCode());
+
+    public void keyPressed(KeyEvent e) {
+        gsm.keyPressed(e.getKeyCode());
+    }
+
+    public void keyReleased(KeyEvent e) {
+        gsm.keyReleased(e.getKeyCode());
     }
 }
