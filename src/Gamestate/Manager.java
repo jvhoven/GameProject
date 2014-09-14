@@ -14,7 +14,9 @@ public class Manager {
     public Manager() {
         
         gameStates = new ArrayList<Gamestate>();
+        
         gameStates.add(new Menu(this));
+        gameStates.add(new Level1(this));
         
         currentState = 0;
         

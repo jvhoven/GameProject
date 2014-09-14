@@ -8,8 +8,8 @@ import javax.swing.JPanel;
 
 public class Gamepanel extends JPanel implements Runnable, KeyListener {
     
-    public static final int WIDTH = 640;
-    public static final int HEIGHT = 480;
+    public static final int WIDTH = 1920;
+    public static final int HEIGHT = 1080;
     public static final int SCALE = 2;
     
     private Thread thread;
