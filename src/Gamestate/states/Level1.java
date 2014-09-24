@@ -39,7 +39,7 @@ public class Level1 extends Gamestate {
         
         // update player
         player.update();
-        tileMap.setPosition(Gamepanel.WIDTH / 2 - player.getx(), Gamepanel.HEIGHT / 2 - player.gety());
+        tileMap.setPosition(Gamepanel.WIDTH / 3 - player.getx(), Gamepanel.HEIGHT / 3 - player.gety());
     
     }
     public void draw(Graphics2D g){

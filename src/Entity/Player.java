@@ -132,8 +132,6 @@ public class Player extends Object {
     public int getMaxHealth() { return maxHealth; }
     public int getFire() { return fire; }
     public int getMaxFire() { return maxFire; }
-    public int getx() { return (int)x; }
-    public int gety() { return (int)y; }
 
     public void setFiring() { firing = true; }
     public void setScratching() { scratching = true; }

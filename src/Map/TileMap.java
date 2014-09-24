@@ -85,7 +85,6 @@ public class TileMap {
            height = numRows * tileSize;
            
            xmin = Gamepanel.WIDTH - width;
-            System.out.println(width);
            xmax = 0;
            ymin = Gamepanel.HEIGHT - height;
            ymax = 0;
@@ -122,7 +121,7 @@ public class TileMap {
         
         this.x += (x - this.x) * tween;
         this.y += (y - this.y) * tween;
-
+        
         fixBounds();
         
         colOffset = (int)-this.x / tileSize;

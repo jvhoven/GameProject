@@ -198,8 +198,8 @@ public abstract class Object {
     public void setDown(boolean b) { down = b; }
     public void setJumping(boolean b) { jumping = b; }
     
-    public int getX(){ return (int)x; }
-    public int getY(){ return (int)y; }
+    public int getx(){ return (int)x; }
+    public int gety(){ return (int)y; }
     public int getWidth(){ return width; }
     public int getHeight(){ return height; }
     public int getCWidth(){ return cwidth; }
